@@ -1,11 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import PostulantPage from './pages/PostulantPage';
+import SecretaryPage from './pages/SecretaryPage';
 import App from './App';
+import Header from './components/app/Header';
 import reportWebVitals from './reportWebVitals';
+import Footer from './components/app/Footer';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Header />
+      <div style={{ minHeight: 'calc(100vh - 230px)' }}>
+        <Switch>
+          <Route exact path="/" component={App} />
+          <Route path="/postular" component={PostulantPage} />
+          <Route path="/secretaria" component={SecretaryPage} />
+        </Switch>
+      </div>
+      <Footer />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root'),
 );

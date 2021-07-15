@@ -1,13 +1,9 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import NavigationBar from './components/NavigationBar';
+import Home from './pages/HomePage';
 
 function App() {
   return (
-    <div>
-      <NavigationBar />
-      Initial setup done.
-    </div>
+    <Home />
   );
 }
 
