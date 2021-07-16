@@ -20,7 +20,7 @@ const Home = () => {
         // eslint-disable-next-line
         console.log(diplomateArray);
         setIsLoading(true);
-        const res = await axios({ method: 'GET', url: 'http://localhost:8082/api/v1/diplomates' });
+        const res = await axios({ method: 'GET', url: 'http://localhost:8081/api/v1/diplomates' });
         // eslint-disable-next-line
         setDiplomateArray(res.data);
         // eslint-disable-next-line
@@ -36,7 +36,7 @@ const Home = () => {
   const getDiplomateDataHandler = async (diplomateId) => {
     // eslint-disable-next-line
     try {
-      const res = await axios({ method: 'GET', url: `http://localhost:8082/api/v1/diplomates/${diplomateId}` });
+      const res = await axios({ method: 'GET', url: `http://localhost:8081/api/v1/diplomates/${diplomateId}` });
       // eslint-disable-next-line
       console.log(res.data);
     } catch (error) {
