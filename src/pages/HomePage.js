@@ -6,6 +6,7 @@ import BookOpenIcon from 'mdi-react/BookOpenVariantIcon';
 import CalendarIcon from 'mdi-react/CalendarDayIcon';
 import DiplomateIcon from 'mdi-react/CertificateOutlineIcon';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 import HomeBanner from '../components/app/HomeBanner';
 // import DiplomateImage from '../images/woman_working_computers.jpg';
 import DiplomatePreview from '../components/diplomate/DiplomatePreview';
@@ -13,6 +14,7 @@ import DiplomatePreview from '../components/diplomate/DiplomatePreview';
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [diplomateArray, setDiplomateArray] = useState([]);
+  const history = useHistory();
 
   useEffect(async () => {
     if (diplomateArray.length === 0) {
@@ -34,19 +36,11 @@ const Home = () => {
   }, []);
 
   const getDiplomateDataHandler = async (diplomateId) => {
-    // eslint-disable-next-line
-    try {
-      const res = await axios({ method: 'GET', url: `http://localhost:8082/api/v1/diplomates/${diplomateId}` });
-      // eslint-disable-next-line
-      console.log(res.data);
-    } catch (error) {
-      // eslint-disable-next-line
-      console.log(error);
-    }
+    history.push(`/diplomado/${diplomateId}`);
   };
 
   const diplomateCards = diplomateArray.map((diplomate) => (
-    <Col key={diplomate.id}>
+    <Col sm={6} md={6} lg={4} xl={4} key={diplomate.id} style={{ marginBottom: '24px' }}>
       <DiplomatePreview
         id={diplomate.id}
         title={diplomate.title}

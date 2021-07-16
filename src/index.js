@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import PostulantPage from './pages/PostulantPage';
 import SecretaryPage from './pages/SecretaryPage';
+import DiplomatePage from './pages/DiplomatePage';
 import App from './App';
 import Header from './components/app/Header';
 import reportWebVitals from './reportWebVitals';
@@ -18,6 +19,7 @@ ReactDOM.render(
           <Route exact path="/" component={App} />
           <Route path="/postular" component={PostulantPage} />
           <Route path="/secretaria" component={SecretaryPage} />
+          <Route path="/diplomado/:diplomadoId" component={DiplomatePage} />
         </Switch>
       </div>
       <Footer />
