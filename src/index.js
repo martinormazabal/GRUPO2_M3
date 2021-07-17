@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import PostulantPage from './pages/PostulantPage';
 import SecretaryPage from './pages/SecretaryPage';
 import PostulantMoreInfoPage from './pages/PostulantMoreInfoPage';
+import DiplomatePage from './pages/DiplomatePage';
 import App from './App';
 import Header from './components/app/Header';
 import reportWebVitals from './reportWebVitals';
@@ -19,7 +20,6 @@ ReactDOM.render(
           <Route exact path="/" component={App} />
           <Route path="/postular" component={PostulantPage} />
           <Route path="/secretaria" component={SecretaryPage} />
-          <Route path="/moreInfo" component={PostulantMoreInfoPage} />
         </Switch>
       </div>
       <Footer />

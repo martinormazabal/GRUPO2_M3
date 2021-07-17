@@ -15,7 +15,7 @@ export default function Header() {
         <div style={{ width: '35%', backgroundColor: '#06487F' }}>{' '}</div>
         <div style={{ width: '65%', backgroundColor: '#EA8232' }}>{' '}</div>
       </div>
-      <Navbar sticky="top" variant="light" style={{ backgroundColor: '#fff' }}>
+      <Navbar sticky="top" variant="light" style={{ backgroundColor: '#fff', borderBottom: '1px solid #EEEEEE' }}>
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>

@@ -13,21 +13,31 @@ const DiplomatePreview = (props) => {
   };
 
   return (
-    <Form onSubmit={submitHandler}>
-      <Card style={{
+    <Card
+      className="h-100"
+      style={{
         border: 'none', borderRadius: '10px', backgroundColor: '#F4F8FB',
       }}
-      >
-        <Card.Img variant="top" src={image} style={{ borderRadius: '10px 10px 0px 0px' }} />
-        <Card.Body>
-          <Card.Title style={{ display: 'flex', alignItems: 'center', color: '#E86A35' }}>{ title }</Card.Title>
-          <Card.Text>
-            { description }
-          </Card.Text>
+    >
+      <Card.Img
+        variant="top"
+        src={image}
+        style={{
+          borderRadius: '10px 10px 0px 0px', height: '250px', width: '100%', objectFit: 'cover',
+        }}
+      />
+      <Card.Body>
+        <Card.Title style={{ display: 'flex', alignItems: 'center', color: '#E86A35' }}>{ title }</Card.Title>
+        <Card.Text>
+          { description }
+        </Card.Text>
+      </Card.Body>
+      <div style={{ display: 'flex', padding: '0 1em 1em 1em', justifyContent: 'flex-end' }}>
+        <Form onSubmit={submitHandler}>
           <Button variant="card" type="submit">Ver detalles</Button>
-        </Card.Body>
-      </Card>
-    </Form>
+        </Form>
+      </div>
+    </Card>
   );
 };
 

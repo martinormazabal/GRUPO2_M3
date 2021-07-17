@@ -6,6 +6,7 @@ import BookOpenIcon from 'mdi-react/BookOpenVariantIcon';
 import CalendarIcon from 'mdi-react/CalendarDayIcon';
 import DiplomateIcon from 'mdi-react/CertificateOutlineIcon';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 import HomeBanner from '../components/app/HomeBanner';
 // import DiplomateImage from '../images/woman_working_computers.jpg';
 import DiplomatePreview from '../components/diplomate/DiplomatePreview';
@@ -13,6 +14,7 @@ import DiplomatePreview from '../components/diplomate/DiplomatePreview';
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [diplomateArray, setDiplomateArray] = useState([]);
+  const history = useHistory();
 
   useEffect(async () => {
     if (diplomateArray.length === 0) {
@@ -43,10 +45,11 @@ const Home = () => {
       // eslint-disable-next-line
       console.log(error);
     }
+    history.push(`/diplomado/${diplomateId}`);
   };
 
   const diplomateCards = diplomateArray.map((diplomate) => (
-    <Col key={diplomate.id}>
+    <Col sm={6} md={6} lg={4} xl={4} key={diplomate.id} style={{ marginBottom: '24px' }}>
       <DiplomatePreview
         id={diplomate.id}
         title={diplomate.title}
@@ -111,7 +114,7 @@ const Home = () => {
             <h1
               className="mt-4"
               style={{
-                display: 'flex', alignItems: 'center', fontSize: '1.2em', fontWeight: 'bold',
+                display: 'flex', alignItems: 'center', fontSize: '1.2em', fontWeight: 'bold', color: '#0C497E',
               }}
             >
               <DiplomateIcon style={{ marginRight: '0.3em' }} />
