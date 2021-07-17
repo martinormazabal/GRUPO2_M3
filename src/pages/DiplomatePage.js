@@ -12,7 +12,7 @@ const DiplomatePage = () => {
   useEffect(async () => {
     try {
       setIsLoading(true);
-      const res = await axios({ method: 'GET', url: `http://localhost:8082/api/v1/diplomates/${diplomadoId}` });
+      const res = await axios({ method: 'GET', url: `http://localhost:8081/api/v1/diplomates/${diplomadoId}` });
       setDiplomate(res.data);
       setIsLoading(false);
     } catch (error) {
@@ -160,6 +160,7 @@ const DiplomatePage = () => {
             { !isLoading && (
 
             <DiplomateCard
+              key={1}
               title={diplomate.title}
               objectives={diplomate.description}
               syllabus={syllabus}

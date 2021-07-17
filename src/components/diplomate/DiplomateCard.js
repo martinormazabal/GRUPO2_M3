@@ -25,9 +25,11 @@ const DiplomateCard = (props) => {
     props.onClick();
   };
 
-  const diplomateCardsAcademic = teachersCouncil.map((academic) => (
+  const diplomateCardsAcademic = teachersCouncil.map((academic, index) => (
     <Col sm={12} md={12} lg={6} style={{ marginBottom: '24px' }}>
       <DiplomateCardAcademic2
+        // eslint-disable-next-line react/no-array-index-key
+        key={index}
         name={academic.name}
         image={academic.image}
         curriculum={academic.curriculum}

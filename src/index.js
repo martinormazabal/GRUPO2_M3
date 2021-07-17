@@ -10,10 +10,12 @@ import App from './App';
 import Header from './components/app/Header';
 import reportWebVitals from './reportWebVitals';
 import Footer from './components/app/Footer';
+import ScrollToTop from './components/app/ScrollToTop';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+      <ScrollToTop />
       <Header />
       <div style={{ minHeight: 'calc(100vh - 230px)' }}>
         <Switch>

@@ -5,6 +5,7 @@ import {
 import axios from 'axios';
 
 const PostulantForm = (props) => {
+  const { clickedDiplomate } = props;
   const [formState, setFormState] = useState({});
 
   function handleNameChange(event) {
@@ -49,7 +50,7 @@ const PostulantForm = (props) => {
       // eslint-disable-next-line
       email: formState.email,
       // eslint-disable-next-line
-      id_diplomate: props.clickedDiplomate,
+      id_diplomate: clickedDiplomate,
     };
     const headers = {
       'Content-Type': 'application/json',
