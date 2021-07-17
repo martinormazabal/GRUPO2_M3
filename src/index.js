@@ -20,6 +20,8 @@ ReactDOM.render(
           <Route exact path="/" component={App} />
           <Route path="/postular" component={PostulantPage} />
           <Route path="/secretaria" component={SecretaryPage} />
+          <Route path="/diplomado/:diplomadoId" component={DiplomatePage} />
+          <Route path="/postular" component={PostulantMoreInfoPage} />
         </Switch>
       </div>
       <Footer />

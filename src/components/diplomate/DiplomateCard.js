@@ -26,7 +26,7 @@ const DiplomateCard = (props) => {
   };
 
   const diplomateCardsAcademic = teachersCouncil.map((academic) => (
-    <Col sm={12} md={6} lg={6} style={{ marginBottom: '24px' }}>
+    <Col sm={12} md={12} lg={6} style={{ marginBottom: '24px' }}>
       <DiplomateCardAcademic2
         name={academic.name}
         image={academic.image}
@@ -36,16 +36,13 @@ const DiplomateCard = (props) => {
   ));
 
   return (
-    <div className="my-4">
+    <div className="mb-4" style={{ marginTop: '-2em' }}>
       <Card
         className="h-100"
         style={{
-          border: 'none', borderRadius: '10px', backgroundColor: '#F4F8FB',
+          border: 'none', borderRadius: '10px', backgroundColor: '#F4F8FB', borderTop: '10px solid #0C497E', paddingTop: '1em',
         }}
       >
-        <h1 className="p-4" style={{ fontSize: '2em', color: '#E86A35' }}>
-          {title}
-        </h1>
         <DiplomateCardTitle title="Objetivos y Descripción" icon={<CheckboxOutlineIcon style={{ marginRight: '0.5em' }} />} />
         <DiplomateCardContent content={objectives} />
         <DiplomateCardTitle title="Plan de estudios" icon={<SchoolOutlineIcon style={{ marginRight: '0.5em' }} />} />
