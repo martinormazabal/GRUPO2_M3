@@ -125,24 +125,55 @@ const DiplomatePage = () => {
   }];
 
   return (
-    <Container>
-      <Row>
-        <Col>
-          { isLoading && <p>Cargando...</p>}
-          { !isLoading && (
-          <DiplomateCard
-            title={diplomate.title}
-            objectives={diplomate.description}
-            syllabus={syllabus}
-            teachersCouncil={academic}
-            duty={duty}
-            admission={admission}
-            onClick={getContactHandler}
-          />
-          )}
-        </Col>
-      </Row>
-    </Container>
+    <>
+      { !isLoading && (
+      <div style={{
+        position: 'relative',
+      }}
+      >
+        <img
+          src={diplomate.image}
+          style={{
+            width: '100%', height: '250px', objectFit: 'cover', opacity: 0.1,
+          }}
+          alt={diplomate.title}
+        />
+        <div style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+        }}
+        >
+          <h1 className="noselect" style={{ textAlign: 'center', fontSize: '1.2em', marginBottom: '0px' }}>Departamento de Ingeniería Informática</h1>
+          <h2 className="noselect" style={{ textAlign: 'center', fontSize: '3em', color: '#E86A35' }}>
+            { diplomate.title}
+          </h2>
+        </div>
+      </div>
+      )}
+
+      <Container>
+        <Row>
+          <Col>
+            { isLoading && <p>Cargando...</p>}
+            { !isLoading && (
+
+            <DiplomateCard
+              title={diplomate.title}
+              objectives={diplomate.description}
+              syllabus={syllabus}
+              teachersCouncil={academic}
+              duty={duty}
+              admission={admission}
+              onClick={getContactHandler}
+            />
+            )}
+          </Col>
+        </Row>
+      </Container>
+    </>
+
   );
 };
 
