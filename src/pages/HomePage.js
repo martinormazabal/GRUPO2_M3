@@ -105,7 +105,7 @@ const Home = () => {
             <h1
               className="mt-4"
               style={{
-                display: 'flex', alignItems: 'center', fontSize: '1.2em', fontWeight: 'bold',
+                display: 'flex', alignItems: 'center', fontSize: '1.2em', fontWeight: 'bold', color: '#0C497E',
               }}
             >
               <DiplomateIcon style={{ marginRight: '0.3em' }} />
