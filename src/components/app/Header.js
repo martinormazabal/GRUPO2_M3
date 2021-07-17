@@ -33,6 +33,11 @@ export default function Header() {
                 <Nav.Link>Secretaria</Nav.Link>
               </LinkContainer>
             </NavItem>
+            <NavItem>
+              <LinkContainer to="/moreInfo">
+                <Nav.Link>More Info</Nav.Link>
+              </LinkContainer>
+            </NavItem>
           </Nav>
           <Nav>
             <Nav.Item>
