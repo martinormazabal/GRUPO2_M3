@@ -29,6 +29,7 @@ const DiplomatePage = () => {
     const headers = {
       'Content-Type': 'application/json',
     };
+    console.log(payload);
     try {
       // eslint-disable-next-line
       console.log("enviando...");
