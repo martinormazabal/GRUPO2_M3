@@ -23,7 +23,7 @@ const DiplomateCard = (props) => {
   } = props;
 
   const submitContactHandler = async (payload) => {
-    await props.onClickContact({ id, ...payload });
+    await props.onClickContact({ id_diplomate: id, ...payload });
     setShowModal(false);
   };
 
