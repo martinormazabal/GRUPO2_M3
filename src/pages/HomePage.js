@@ -19,14 +19,9 @@ const Home = () => {
   useEffect(async () => {
     if (diplomateArray.length === 0) {
       try {
-        // eslint-disable-next-line
-        console.log(diplomateArray);
         setIsLoading(true);
-        const res = await axios({ method: 'GET', url: 'http://localhost:8082/api/v1/diplomates' });
-        // eslint-disable-next-line
+        const res = await axios({ method: 'GET', url: 'http://localhost:8081/api/v1/diplomates' });
         setDiplomateArray(res.data);
-        // eslint-disable-next-line
-        console.log(res.data);
         setIsLoading(false);
       } catch (error) {
         // eslint-disable-next-line

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import DiplomateCardSubtitle from './DiplomateCardSubtitle';
 
@@ -8,7 +9,7 @@ const DiplomateCardSyllabusList = (props) => {
       <DiplomateCardSubtitle subtitle="Número de cursos y duración" />
       <div style={{ paddingLeft: '2em' }}>
         <ul>
-          {numberCoursesDuration.map((item) => <li>{item}</li>)}
+          {numberCoursesDuration.map((item, index) => <li key={index}>{item}</li>)}
         </ul>
       </div>
       <DiplomateCardSubtitle subtitle="Número de cursos y duración" />
@@ -18,13 +19,13 @@ const DiplomateCardSyllabusList = (props) => {
       </p>
       <div style={{ paddingLeft: '3em' }}>
         <ul>
-          {programCourses.map((item) => <li>{item}</li>)}
+          {programCourses.map((item, index) => <li key={index}>{item}</li>)}
         </ul>
       </div>
       <DiplomateCardSubtitle subtitle="Número de cursos y duración" />
       <div style={{ paddingLeft: '2em' }}>
         <ul>
-          {approbalRequirements.map((item) => <li>{item}</li>)}
+          {approbalRequirements.map((item, index) => <li key={index}>{item}</li>)}
         </ul>
       </div>
     </div>

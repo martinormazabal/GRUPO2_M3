@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import DiplomateCardSubtitle from './DiplomateCardSubtitle';
 
@@ -8,7 +9,7 @@ const DiplomateCardDutyList = (props) => {
       <DiplomateCardSubtitle subtitle="Aranceles" />
       <div style={{ paddingLeft: '2em' }}>
         <ul>
-          {duty.map((item) => <li>{item}</li>)}
+          {duty.map((item, index) => <li key={index}>{item}</li>)}
         </ul>
       </div>
       <DiplomateCardSubtitle subtitle="Descuentos" />
@@ -18,7 +19,7 @@ const DiplomateCardDutyList = (props) => {
       </p>
       <div style={{ paddingLeft: '3em' }}>
         <ul>
-          {discounts.map((item) => <li>{item}</li>)}
+          {discounts.map((item, index) => <li key={index}>{item}</li>)}
         </ul>
         <div style={{ fontWeight: 'bold' }}>
           IMPORTANTE:

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { Card } from 'react-bootstrap';
 
@@ -17,7 +18,7 @@ const DiplomateCardAcademic2 = (props) => {
             src={image}
             alt="academic"
             style={{
-              borderRadius: '10%', height: '140px', width: '140px', objectFit: 'cover',
+              borderRadius: '10px', height: '140px', width: '140px', objectFit: 'cover',
             }}
           />
         </div>
@@ -30,8 +31,8 @@ const DiplomateCardAcademic2 = (props) => {
               {name}
             </Card.Title>
             <ul style={{ marginRight: '0.8em' }}>
-              {curriculum.map((history) => (
-                <li style={{ fontSize: '1em' }}>{history}</li>
+              {curriculum.map((history, index) => (
+                <li key={index} style={{ fontSize: '1em' }}>{history}</li>
               ))}
             </ul>
           </Card.Body>

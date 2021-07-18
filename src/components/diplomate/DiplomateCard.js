@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  Button, Card, Form, Row, Col,
+  Button, Card, Row, Col,
 } from 'react-bootstrap';
 import './DiplomateCard.css';
 import CheckboxOutlineIcon from 'mdi-react/CheckBoxOutlineIcon';
@@ -14,20 +14,29 @@ import DiplomateCardTitle from './DiplomateCardTitle';
 import DiplomateCardSyllabusList from './DiplomateCardSyllabusList';
 import DiplomateCardDutyList from './DiplomateCardDutyList';
 import DiplomateCardAdmissionList from './DiplomateCardAdmissionList';
+import PostulantMoreInfoForm from '../postulant/PostulantMoreInfoForm';
 
 const DiplomateCard = (props) => {
+  const [showModal, setShowModal] = useState(false);
   const {
-    title, objectives, syllabus, teachersCouncil, duty, admission,
+    id, title, objectives, syllabus, teachersCouncil, duty, admission,
   } = props;
 
-  const submitHandler = (event) => {
-    event.preventDefault();
-    props.onClick();
+  const submitContactHandler = async (payload) => {
+    await props.onClickContact({ id, ...payload });
+    setShowModal(false);
   };
 
-  const diplomateCardsAcademic = teachersCouncil.map((academic) => (
+  const submitInscriptionHandler = (event) => {
+    event.preventDefault();
+    props.onClickInscription();
+  };
+
+  const diplomateCardsAcademic = teachersCouncil.map((academic, index) => (
     <Col sm={12} md={12} lg={6} style={{ marginBottom: '24px' }}>
       <DiplomateCardAcademic2
+        // eslint-disable-next-line react/no-array-index-key
+        key={index}
         name={academic.name}
         image={academic.image}
         curriculum={academic.curriculum}
@@ -36,8 +45,9 @@ const DiplomateCard = (props) => {
   ));
 
   return (
-    <div className="mb-4" style={{ marginTop: '-2em' }}>
+    <div key={id} className="mb-4" style={{ marginTop: '-2em' }}>
       <Card
+        key={id}
         className="h-100"
         style={{
           border: 'none', borderRadius: '10px', backgroundColor: '#F4F8FB', borderTop: '10px solid #0C497E', paddingTop: '1em',
@@ -82,12 +92,12 @@ const DiplomateCard = (props) => {
                   display: 'flex', padding: '0 1em 1em 1em',
                 }}
               >
-                <Form onSubmit={submitHandler}>
+                <div>
                   <div>
                     ¿Necesitas más información?
                   </div>
-                  <Button variant="card" style={{ width: '100%' }} type="submit">Contáctanos</Button>
-                </Form>
+                  <Button variant="card" style={{ width: '100%' }} onClick={() => { setShowModal(true); }}>Contáctanos</Button>
+                </div>
               </div>
               <div style={{ paddingLeft: '1em', paddingRight: '1em' }}>
                 <p style={{ fontWeight: 'bold' }}>Coordinador</p>
@@ -118,16 +128,21 @@ const DiplomateCard = (props) => {
           </div>
           ?
         </div>
-        <Form onSubmit={submitHandler}>
-          <div
-            style={{
-              display: 'flex', padding: '0 1em 1em 1em',
-            }}
-          >
-            <Button variant="card" style={{ width: '100%' }} type="submit">¡Inscríbete aquí!</Button>
-          </div>
-        </Form>
+        <div
+          style={{
+            display: 'flex', padding: '0 1em 1em 1em',
+          }}
+        >
+          <Button variant="card" style={{ width: '100%' }} onClick={submitInscriptionHandler}>¡Inscríbete aquí!</Button>
+
+        </div>
       </Card>
+      <PostulantMoreInfoForm
+        title={title}
+        show={showModal}
+        onHide={() => { setShowModal(false); }}
+        onSubmitPostulantForm={submitContactHandler}
+      />
     </div>
   );
 };
