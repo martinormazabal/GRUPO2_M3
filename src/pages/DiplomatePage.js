@@ -1,6 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import {
+  Container, Row, Col,
+} from 'react-bootstrap';
+
 import { useParams } from 'react-router-dom';
 import DiplomateCard from '../components/diplomate/DiplomateCard';
 
@@ -9,6 +12,7 @@ const DiplomatePage = () => {
   const [diplomate, setDiplomate] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
+  // const [modalShow, setModalShow] = React.useState(false);
   useEffect(async () => {
     try {
       setIsLoading(true);
@@ -21,9 +25,23 @@ const DiplomatePage = () => {
     }
   }, []);
 
-  const getContactHandler = async () => {
-    console.log('Modal acá');
-    console.log(diplomadoId);
+  const getContactHandler = async (payload) => {
+    const headers = {
+      'Content-Type': 'application/json',
+    };
+    try {
+      // eslint-disable-next-line
+      console.log("enviando...");
+      await axios.post('http://localhost:8081/api/v1/postulants', payload, { headers });
+      console.log('enviado!');
+    } catch (error) {
+      // eslint-disable-next-line
+      console.log(error);
+    }
+  };
+
+  const getInscriptionHandler = () => {
+    console.log('Inscripción');
   };
 
   const syllabus = [{
@@ -158,17 +176,21 @@ const DiplomatePage = () => {
           <Col>
             { isLoading && <p>Cargando...</p>}
             { !isLoading && (
+            <>
+              <DiplomateCard
+                key={diplomate.id}
+                id={diplomate.id}
+                title={diplomate.title}
+                objectives={diplomate.description}
+                syllabus={syllabus}
+                teachersCouncil={academic}
+                duty={duty}
+                admission={admission}
+                onClickContact={getContactHandler}
+                onClickInscription={getInscriptionHandler}
+              />
 
-            <DiplomateCard
-              key={1}
-              title={diplomate.title}
-              objectives={diplomate.description}
-              syllabus={syllabus}
-              teachersCouncil={academic}
-              duty={duty}
-              admission={admission}
-              onClick={getContactHandler}
-            />
+            </>
             )}
           </Col>
         </Row>

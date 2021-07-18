@@ -18,7 +18,7 @@ const DiplomateCardAcademic2 = (props) => {
             src={image}
             alt="academic"
             style={{
-              borderRadius: '10%', height: '140px', width: '140px', objectFit: 'cover',
+              borderRadius: '10px', height: '140px', width: '140px', objectFit: 'cover',
             }}
           />
         </div>
