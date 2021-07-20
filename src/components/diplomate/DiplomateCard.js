@@ -15,9 +15,11 @@ import DiplomateCardSyllabusList from './DiplomateCardSyllabusList';
 import DiplomateCardDutyList from './DiplomateCardDutyList';
 import DiplomateCardAdmissionList from './DiplomateCardAdmissionList';
 import PostulantMoreInfoForm from '../postulant/PostulantMoreInfoForm';
+import PostulantInscriptionForm from '../postulant/PostulantInscriptionForm';
 
 const DiplomateCard = (props) => {
   const [showModal, setShowModal] = useState(false);
+  const [showInscriptionModal, setShowInscriptionModal] = useState(false);
   const {
     id, title, objectives, syllabus, teachersCouncil, duty, admission,
   } = props;
@@ -27,9 +29,9 @@ const DiplomateCard = (props) => {
     setShowModal(false);
   };
 
-  const submitInscriptionHandler = (event) => {
-    event.preventDefault();
-    props.onClickInscription();
+  const submitInscriptionHandler = async (payload) => {
+    await props.onClickInscription(payload);
+    setShowInscriptionModal(false);
   };
 
   const diplomateCardsAcademic = teachersCouncil.map((academic, index) => (
@@ -133,7 +135,7 @@ const DiplomateCard = (props) => {
             display: 'flex', padding: '0 1em 1em 1em',
           }}
         >
-          <Button variant="card" style={{ width: '100%' }} onClick={submitInscriptionHandler}>¡Inscríbete aquí!</Button>
+          <Button variant="card" style={{ width: '100%' }} onClick={() => { setShowInscriptionModal(true); }}>¡Inscríbete aquí!</Button>
 
         </div>
       </Card>
@@ -142,6 +144,12 @@ const DiplomateCard = (props) => {
         show={showModal}
         onHide={() => { setShowModal(false); }}
         onSubmitPostulantForm={submitContactHandler}
+      />
+      <PostulantInscriptionForm
+        title={title}
+        show={showInscriptionModal}
+        onHide={() => { setShowInscriptionModal(false); }}
+        onSubmitPostulantInscriptionForm={submitInscriptionHandler}
       />
     </div>
   );

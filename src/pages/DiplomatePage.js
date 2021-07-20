@@ -41,8 +41,9 @@ const DiplomatePage = () => {
     }
   };
 
-  const getInscriptionHandler = () => {
-    console.log('Inscripción');
+  const getInscriptionHandler = (payload) => {
+    console.log(payload);
+    console.log('Llamada al backend de la Inscripción');
   };
 
   const syllabus = [{

@@ -6,9 +6,9 @@ import SendIcon from 'mdi-react/SendIcon';
 import EmailIcon from 'mdi-react/EmailIcon';
 import AccountIcon from 'mdi-react/AccountIcon';
 import TextAccountIcon from 'mdi-react/TextAccountIcon';
-import './PostulantMoreInfoForm.css';
+import './PostulantInscriptionForm.css';
 
-const PostulantMoreInfoForm = (props) => {
+const PostulantInscriptionForm = (props) => {
   const [formState, setFormState] = useState({ name: '', email: '', lastName: '' });
   const [isLoading, setIsLoading] = useState(false);
   const { title, show, onHide } = props;
@@ -83,7 +83,7 @@ const PostulantMoreInfoForm = (props) => {
                 color: '#0c497e', marginTop: '-0.3em', fontSize: '1em', fontWeight: 'bold',
               }}
               >
-                Formulario de Contacto
+                Formulario de Inscripción
               </div>
             </div>
           </Modal.Title>
@@ -148,4 +148,4 @@ const PostulantMoreInfoForm = (props) => {
   );
 };
 
-export default PostulantMoreInfoForm;
+export default PostulantInscriptionForm;
