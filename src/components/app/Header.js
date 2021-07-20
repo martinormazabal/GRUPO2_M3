@@ -3,7 +3,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { LinkContainer } from 'react-router-bootstrap';
 import {
-  Container, NavItem, Button,
+  Container,
 } from 'react-bootstrap';
 import LoginIcon from 'mdi-react/LoginIcon';
 import HeaderLogo from './HeaderLogo';
@@ -22,31 +22,16 @@ export default function Header() {
               <HeaderLogo />
             </Navbar.Brand>
           </LinkContainer>
-          <Nav className="me-auto">
-            <NavItem>
-              <LinkContainer to="/postular">
-                <Nav.Link>Postular</Nav.Link>
-              </LinkContainer>
-            </NavItem>
-            <NavItem>
-              <LinkContainer to="/secretaria">
-                <Nav.Link>Secretaria</Nav.Link>
-              </LinkContainer>
-            </NavItem>
-            <NavItem>
-              <LinkContainer to="/moreInfo">
-                <Nav.Link>More Info</Nav.Link>
-              </LinkContainer>
-            </NavItem>
-          </Nav>
           <Nav>
             <Nav.Item>
-              <Button variant="outline-primary">
+              <LinkContainer to="/iniciar-sesion">
                 <Nav.Link style={{ color: 'white' }}>
-                  <LoginIcon style={{ marginRight: '0.3em' }} />
-                  Iniciar Sesión
+                  <div style={{ diplay: 'flex', alignItems: 'center' }}>
+                    <LoginIcon style={{ marginRight: '0.3em' }} />
+                    Iniciar Sesión
+                  </div>
                 </Nav.Link>
-              </Button>
+              </LinkContainer>
             </Nav.Item>
           </Nav>
         </Container>
