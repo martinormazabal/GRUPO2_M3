@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Switch, Route, Redirect,
+} from 'react-router-dom';
 import PostulantPage from './pages/PostulantPage';
 import SecretaryPage from './pages/SecretaryPage';
 import PostulantMoreInfoPage from './pages/PostulantMoreInfoPage';
@@ -11,6 +13,7 @@ import LoginPage from './pages/LoginPage';
 import DashboardSecretary from './pages/DashboardSecretary';
 import DashboardResponsable from './pages/DashboardResponsable';
 import HomePage from './pages/HomePage';
+import DashboardSecretaryPostulations from './pages/DashboardSecretaryPostulations';
 
 function App() {
   /* const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -29,15 +32,20 @@ function App() {
       <ScrollToTop />
       <Header />
       <div style={{ minHeight: 'calc(100vh - 230px)' }}>
+        <Redirect
+          from="/"
+          to="/inicio"
+        />
         <Switch>
-          <Route exact path="/" component={HomePage} />
+          <Route exact path="/inicio" component={HomePage} />
           <Route exact path="/tablero/secretaria" component={DashboardSecretary} />
+          <Route exact path="/tablero/secretaria/diplomado/:diplomadoId" component={DashboardSecretaryPostulations} />
           <Route exact path="/tablero/consejo" component={DashboardResponsable} />
-          <Route path="/iniciar-sesion" component={LoginPage} />
-          <Route path="/postular" component={PostulantPage} />
-          <Route path="/secretaria" component={SecretaryPage} />
-          <Route path="/diplomado/:diplomadoId" component={DiplomatePage} />
-          <Route path="/postular" component={PostulantMoreInfoPage} />
+          <Route exact path="/iniciar-sesion" component={LoginPage} />
+          <Route exact path="/postular" component={PostulantPage} />
+          <Route exact path="/secretaria" component={SecretaryPage} />
+          <Route exact path="/diplomado/:diplomadoId" component={DiplomatePage} />
+          <Route exact path="/postular" component={PostulantMoreInfoPage} />
         </Switch>
       </div>
       <Footer />
