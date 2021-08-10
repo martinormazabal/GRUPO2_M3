@@ -30,8 +30,8 @@ public class TestImplementation {
 
     @Test
     public void verifyHomeTitle() {
-        driver.get("http://localhost:3000/");
-        assertThat(driver.getTitle(), containsString("Formulario de Inscripción"));
+        driver.get("http://138.197.13.81/:3000/");
+        assertThat(driver.getTitle(), containsString("React App"));
 
         WebElement inicioElem = driver.findElement(By.id("Inicio"));
         WebDriverWait wait = new WebDriverWait(driver, 5);
